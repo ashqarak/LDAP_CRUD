@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>User Added</title>
+<link th:href="@{/css/showMessage.css}" rel="stylesheet" type="text/css">
+<link th:href="@{/css/header.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header th:insert="/general.html :: header"> </header>
+<div align="center"><h2>User added successfully !! </h2><br/>
+	
+<span>Name : </span><span th:text = "${user.name}"></span><br/>
+<span>Employee ID : </span><span th:text = "${user.employeeId}"></span><br/>
+<span>Email : </span><span th:text = "${user.mailId}"></span><br/>
+<span>Branch : </span><span th:text = "${user.branch}"></span><br/>
+<span>Group : </span><span th:text = "${user.accessType}"></span><br/>
+
+
+</div>
+</body>
+</html>

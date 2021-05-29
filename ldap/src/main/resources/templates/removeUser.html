@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Remove User</title>
+<link th:href="@{/css/removeUser.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/header.css}" rel="stylesheet" type="text/css">
+    
+</head>
+<body>
+<header th:insert="/general.html :: header"> </header>
+<div align="center">
+<h1>Remove User</h1>
+
+<form action="#" th:action="@{/removeUser}" th:object="${user}" method="post">
+      <p>
+        <label>Branch: </label>
+        <select th:field="*{branch}" th:id ="branchId">
+        		<option value="default">Select the branch</option>
+    			<option th:each="access : ${branchTypeList}" th:text="${access}" th:value="${access}"/>
+			</select>
+    </p>
+    <p>
+        <label>Lan Id: </label>
+        <input type="text" th:field="*{LanID}">
+    </p>
+    <p>
+        <input type="submit" value="Submit"/> <input type="reset" value="Reset">
+    </p>
+</form>
+</div>
+</body>
+</html>

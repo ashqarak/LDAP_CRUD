@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add user</title>
+    <link th:href="@{/css/addUser.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/header.css}" rel="stylesheet" type="text/css">
+    <meta charset="ISO-8859-1">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+ 	<script type="text/javascript" th:src="@{/js/main.js}" src="/js/main.js"></script>
+</head>
+<body>
+<header th:insert="/general.html :: header"> </header>
+<div align="center">
+<h1>Add User</h1>
+
+<form th:id="data" action="#" th:action="@{/addUser}" th:object="${user}" method="post">
+	 <p>
+        <label>Branch: </label>
+        <select th:field="*{branch}" th:id ="branchId">
+        		<option value="default">Select the branch</option>
+    			<option th:each="access : ${branchTypeList}" th:text="${access}" th:value="${access}"/>
+			</select>
+    </p>
+    <p>
+        <label>Group: </label>
+        <select th:field="*{accessType}" th:id="groupId" > 
+        		<option value="default">Select the Group</option>
+    			 <!-- <option th:each="access : ${html}" th:text="${access}" th:value="${access}"/>  -->
+			</select>
+    </p>
+	<p>
+        <label>Lan Id: </label>
+        <input type="text" th:field="*{LanID}">
+    </p>
+    <p>
+       	<label>Full Name:</label> 
+       	<input type="text" th:field="*{name}">
+    </p>
+    <p>
+        <label>Employee Id:</label> 
+        <input type="text" th:field="*{employeeId}">
+    </p>
+    <p>
+        <label>Email Id: </label> 
+        <input type="text" th:field="*{mailId}">
+    </p>
+
+  <p>
+        <input type="submit" onclick="test()"value="Submit"/> <input type="reset" value="Reset">
+    </p>
+</form>
+</div>
+<script>   
+        $(document).ready(
+        function() {
+
+            $('#branchId').change(
+            function() {
+                
+                $.getJSON('http://localhost:8080/ldap/loadGroupNames', {
+                    branchId : $(this).val(),
+                    ajax : 'true'
+                }, function(data) {
+                    
+                    var html = '<option value="">Select Group</option>';
+                    var len = data.length;
+      
+                    for ( var i = 0; i < len; i++) {
+                    	 html += '<option value="' + data[i] + '">' + data[i] + '</option>';
+                    }
+                    html += '</option>';
+   					document.getElementById("groupId").innerHTML = html;
+                    
+                });
+            });
+            
+        });
+        
+    </script>
+</body>
+</html>

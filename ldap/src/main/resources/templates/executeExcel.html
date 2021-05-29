@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>File Execute</title>
+<link th:href="@{/css/header.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div align="center">
+<header th:insert="/general.html :: header"> </header>
+<h2>Do you wish to execute it ?</h2>
+<form action="#" th:action="@{/executeFromExcel}" th:object="${excelOptions}" method="post">
+	
+	<p>
+        <label>Yes </label>
+        <input type="radio" th:field="*{Yes}" th:value="Yes">
+        
+    </p>
+    <p>
+       	<label>No</label> 
+       	<input type="radio" th:field="*{No}" th:value="No">
+    </p>
+    <p>
+    <input type="submit" value="Submit"/> <input type="reset" value="Reset"/>
+    </p>
+    
+    </form>
+</div>
+
+</body>
+</html>

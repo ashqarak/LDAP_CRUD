@@ -1,0 +1,13 @@
+@charset "ISO-8859-1";
+ input[type=file]{
+	display: inline-block;
+	width :200px;
+	margin : 5px;
+	text-align: left;
+    border-top-width: 100px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+body{
+	
+}

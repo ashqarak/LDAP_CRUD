@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+  <link th:href="@{/css/addBranch.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/header.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div align="center">
+<header th:insert="/general.html :: header"> </header>
+<h1>Add Branch</h1>
+
+<form th:id="data" action="#" th:action="@{/addBranch}" th:object="${user}" method="post">
+	<p>
+        <label>Branch </label>
+        <input type="text" th:field="*{branch}">
+    </p>
+    <p>
+        <input type="submit" value="Submit"/> <input type="reset" value="Reset">
+    </p>
+    
+    </form>
+    </div>
+</body>
+</html>

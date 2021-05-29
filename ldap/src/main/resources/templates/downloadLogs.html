@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Logs</title>
+<link th:href="@{/css/header.css}" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+ 	<script type="text/javascript" th:src="@{/js/main.js}" src="/js/main.js"></script>
+</head>
+<body>
+<header th:insert="/general.html :: header"> </header>
+<div align="center">
+<h1>Latest Logs</h1>
+<table border="1" align="center">
+	<tr>
+              <th>Log Name</th>
+              <th>Link</th>
+            </tr>
+	<tr th:each="file: ${files}">
+    <td th:text="${file}" />
+    <td>
+    <a th:href="${'download/' + file}" th:text="Download"></a>
+	</td>
+
+    </tr>
+    </table>
+    </div>
+</body>
+</html>

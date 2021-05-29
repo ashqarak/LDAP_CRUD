@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>           
+<meta charset="ISO-8859-1">
+<title>LDAP App</title>
+<link th:href="@{/css/welcome.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h1>Welcome to LDAP App !!</h1>
+
+<h2>Please select from below options</h2>
+
+<h3>
+<ul>
+	<li><a href="addBranch">Add Branch</a></li>
+	<li><a th:href="addUser">Add User</a></li>
+	<li><a href="removeUser">Remove User</a></li>
+	<li><a href="download">LDAP logs</a></li>
+	<li><a href="uploadExcel">Upload File</a></li>
+	
+</ul>
+</h3>
+
+</body>
+</html>

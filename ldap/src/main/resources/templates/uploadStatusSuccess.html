@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>File Upload</title>
+<link th:href="@{/css/header.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div align="center">
+<header th:insert="/general.html :: header"> </header>
+
+<div th:if="${message}">
+    <h2 th:text="${message}"/></h2>
+</div>
+<h2>Select the Branch</h2>
+
+<form action="#" th:action="@{/processBranchOption}" th:object="${user}" method="post">
+	
+	 <p>
+        <label>Branch: </label>
+        <select th:field="*{branch}" th:id ="branchId">
+        		<option value="default">Select the branch</option>
+    			<option th:each="access : ${branchTypeList}" th:text="${access}" th:value="${access}"/>
+			</select>
+    </p>
+     <p>
+        <input type="submit" value="Submit"/> <input type="reset" value="Reset">
+    </p>
+    </form>
+
+
+</div>
+
+</body>
+</html>
